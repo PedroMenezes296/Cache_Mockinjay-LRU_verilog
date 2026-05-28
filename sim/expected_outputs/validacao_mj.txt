@@ -1,0 +1,17 @@
+Gabarito - Simulador C (Mockingjay)
+Fonte: validacao/MOCKINGJAY-PERAÇA.txt
+
+=== trace_validacao.txt ===
+Acesso 1: 0x0000 (A) → MISS
+Acesso 2: 0x0800 (B) → MISS
+Acesso 3: 0x0000 (A) → HIT
+Acesso 4: 0x0800 (B) → HIT
+Acesso 5: 0x1000 (C) → MISS (expulsa B, que tem maior ETR)
+Acesso 6: 0x0000 (A) → HIT  (Mockingjay acertou! LRU erraria aqui)
+Acesso 7: 0x0800 (B) → MISS (expulsa A)
+Acesso 8: 0x1000 (C) → HIT
+L1: 4 Hits, 4 Misses → Hit Rate: 50%
+
+=== trace_mixed_hotset.txt ===
+L1: 4 Hits, 4 Misses → Hit Rate: 50%
+L2: 1 Hit,  3 Misses → Hit Rate: 25%

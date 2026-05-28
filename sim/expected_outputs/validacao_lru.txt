@@ -1,0 +1,13 @@
+Gabarito - Simulador C (LRU)
+Fonte: validacao/LRU-GIOVANA.txt
+
+=== trace_validacao.txt ===
+Acesso 1: 0x0000 (A) → MISS
+Acesso 2: 0x0800 (B) → MISS
+Acesso 3: 0x0000 (A) → HIT
+Acesso 4: 0x0800 (B) → HIT
+Acesso 5: 0x1000 (C) → MISS (expulsa A, que é o LRU)
+Acesso 6: 0x0000 (A) → MISS (LRU errou: A foi expulso, mas seria usado aqui)
+Acesso 7: 0x0800 (B) → MISS
+Acesso 8: 0x1000 (C) → MISS
+L1: 2 Hits, 6 Misses → Hit Rate: 25%

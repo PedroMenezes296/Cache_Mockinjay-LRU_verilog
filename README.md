@@ -222,15 +222,7 @@ Escolha uma das ferramentas de simulação:
 
 ```bash
 # Na raiz do projeto
-iverilog -o sim_out \
-  rtl/address_decoder.v \
-  rtl/saturating_counter_4bit.v \
-  rtl/etr_calculator.v \
-  rtl/mockingjay_l1_cache.v \
-  rtl/lru_l1_cache.v \
-  rtl/mockingjay_l2_cache.v \
-  rtl/cache_controller.v \
-  tb/tb_cache_top.v
+iverilog -o sim_out rtl/address_decoder.v rtl/saturating_counter_4bit.v rtl/etr_calculator.v rtl/mockingjay_l1_cache.v rtl/lru_l1_cache.v rtl/mockingjay_l2_cache.v rtl/cache_controller.v tb/tb_cache_top.v
 
 vvp sim_out
 ```
