@@ -77,21 +77,21 @@ module tb_cache_top;
         // Teste 1: trace_validacao (8 acessos) — Mockingjay
         // Esperado: L1 4H/4M (50%)
         // -------------------------------------------------------
-        $readmemh("../sim/traces_hex/trace_validacao.mem", trace_mem);
+        $readmemh("sim/traces_hex/trace_validacao.mem", trace_mem);
         run_trace("trace_validacao", 8, 1'b1);
 
         // -------------------------------------------------------
         // Teste 2: trace_validacao (8 acessos) — LRU
         // Esperado: L1 2H/6M (25%)
         // -------------------------------------------------------
-        $readmemh("../sim/traces_hex/trace_validacao.mem", trace_mem);
+        $readmemh("sim/traces_hex/trace_validacao.mem", trace_mem);
         run_trace("trace_validacao", 8, 1'b0);
 
         // -------------------------------------------------------
         // Teste 3: trace_mixed_hotset (8 acessos) — Mockingjay
         // Esperado: L1 4H/4M, L2 1H/3M
         // -------------------------------------------------------
-        $readmemh("../sim/traces_hex/trace_mixed_hotset.mem", trace_mem);
+        $readmemh("sim/traces_hex/trace_mixed_hotset.mem", trace_mem);
         run_trace("trace_mixed_hotset", 8, 1'b1);
 
         $finish;
