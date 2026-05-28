@@ -1,3 +1,5 @@
 # Ignore the following files and directories
 
 CLAUDE.MD
+
+sim_out
