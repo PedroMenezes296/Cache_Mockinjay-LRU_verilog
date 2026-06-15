@@ -3,3 +3,10 @@
 CLAUDE.MD
 
 sim_out
+
+# Ignore all .log files
+*.log
+
+logisim/
+
+docs/

@@ -141,12 +141,17 @@ module cache_controller (
             mj_l2_en     <= 1'b0;
 
             case (next_state)
-                L1_CHECK: begin
-                    clk_enable   <= 1'b1; // incrementa clock por acesso
+                // Pulso ÚNICO na ENTRADA do estado (state==IDLE). Sem o guard,
+                // o enable seria reasserto a cada ciclo em que L1_CHECK persiste
+                // (1 ciclo esperando + 1 ciclo com done), fazendo a cache executar
+                // o acesso DUAS vezes e o relógio global incrementar 2x por acesso.
+                L1_CHECK: if (state == IDLE) begin
+                    clk_enable   <= 1'b1; // incrementa clock 1x por acesso
                     mj_l1_en     <= policy_sel;
                     lru_l1_en    <= ~policy_sel;
                 end
-                L1_MISS_L2_CHECK: begin
+                // Idem: pulso único ao entrar (vindo de L1_CHECK).
+                L1_MISS_L2_CHECK: if (state == L1_CHECK) begin
                     mj_l2_en     <= 1'b1;
                 end
                 OUTPUT: begin
